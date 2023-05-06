@@ -1,6 +1,6 @@
 /* Set global font family */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Courier New;
 }
 
 /* Style the banner */
@@ -11,12 +11,51 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
+  position: relative;
+}
+
+.banner:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 150px 150px 0 0;
+  border-color: YellowGreen transparent transparent transparent;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  animation: bannerAnimation 1s ease-in-out forwards;
 }
 
 .banner-text {
   color: DarkBlue;
   font-size: 40px;
   text-align: center;
+  opacity: 0;
+  animation: textAnimation 1s ease-in-out forwards;
+}
+
+@keyframes bannerAnimation {
+  from {
+    width: 0;
+    height: 0;
+  }
+  to {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes textAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Style the form */
@@ -81,4 +120,3 @@ form {
   font-size: 12px;
   padding: 3px 6px;
 }
-
